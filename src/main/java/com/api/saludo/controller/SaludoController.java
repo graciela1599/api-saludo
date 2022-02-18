@@ -2,6 +2,7 @@ package com.api.saludo.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,7 @@ public class SaludoController {
 	
 	@GetMapping("getAll")
 	public List<SaludoResponse> getAllSaludo(){
-		return saludoService.getAll().stream().map(SaludoResponse::new).toList();
+		return saludoService.getAll().stream().map(SaludoResponse::new).collect(Collectors.toList());
 	}
 	
 
